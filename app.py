@@ -11,7 +11,7 @@ app = Flask(__name__)
 def keepalive():
     print("THRED STARTED")
     while True:
-        time.sleep(3)
+        time.sleep(60)
         p=requests.get("https://ddl39.herokuapp.com/ping")
         print("KEEP ALIVE")
 
