@@ -6,6 +6,10 @@ import requests
 
 app = Flask(__name__)
 
+
+
+
+
 @app.route('/')
 def homepage():
     print("-------LOG---------")
@@ -20,7 +24,10 @@ def log():
     f=open("log.txt", "r")
     return """{data}""".format(data=f.read())
 
-
+@app.route('/thread')
+def thread():
+    print("MAIN")
+    _thread.start_new_thread(keepalive)
 
 
 def keepalive():
@@ -32,7 +39,5 @@ def keepalive():
      
 
 if __name__ == '__main__':
-    print("MAIN")
-    _thread.start_new_thread(keepalive)
     app.run(debug=True, use_reloader=True)
 
