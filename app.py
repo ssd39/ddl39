@@ -14,6 +14,11 @@ def homepage():
 def ping():
     return """HI"""
 
+@app.route('/log')
+def log():
+    f=open("log.txt", "r")
+    return """{data}""".format(data=f.read())
+
 
 def keepalive():
     time.sleep(10000)
