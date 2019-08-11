@@ -19,17 +19,14 @@ def log():
     f=open("log.txt", "r")
     return """{data}""".format(data=f.read())
 
-@app.route('/alive')
-def alive():
-    f=open("alive.txt", "r")
-    return """{data}""".format(data=f.read())
+
 
 
 def keepalive():
     while True:
         time.sleep(10000)
         p=requests.get("https://ddl39.herokuapp.com/ping")
-        f = open("alive.txt", "a")
+        f = open("log.txt", "a")
         the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
         f.write("KEEP ALIVE SENT AT: {}".format(the_time))
         f.close()
