@@ -24,7 +24,7 @@ def log():
 
 def keepalive():
     while True:
-        time.sleep(10000)
+        time.sleep(10)
         p=requests.get("https://ddl39.herokuapp.com/ping")
         f = open("log.txt", "a")
         the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
