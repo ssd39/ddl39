@@ -26,10 +26,7 @@ def keepalive():
     while True:
         time.sleep(10)
         p=requests.get("https://ddl39.herokuapp.com/ping")
-        f = open("log.txt", "a")
-        the_time = datetime.now().strftime("%A, %d %b %Y %l:%M %p")
-        f.write("KEEP ALIVE SENT AT: {}".format(the_time))
-        f.close()
+        print("KEEP ALIVE")
      
 
 if __name__ == '__main__':
