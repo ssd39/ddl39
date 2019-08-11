@@ -8,7 +8,12 @@ app = Flask(__name__)
 
 
 
-
+def keepalive():
+    print("THRED STARTED")
+    while True:
+        time.sleep(3)
+        p=requests.get("https://ddl39.herokuapp.com/ping")
+        print("KEEP ALIVE")
 
 @app.route('/')
 def homepage():
@@ -30,12 +35,7 @@ def thread():
     _thread.start_new_thread(keepalive)
 
 
-def keepalive():
-    print("THRED STARTED")
-    while True:
-        time.sleep(3)
-        p=requests.get("https://ddl39.herokuapp.com/ping")
-        print("KEEP ALIVE")
+
      
 
 if __name__ == '__main__':
