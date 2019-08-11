@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
+    print("hello")
     return """HELLO WORLD"""
 
 @app.route('/ping')
