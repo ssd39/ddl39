@@ -1,6 +1,7 @@
 from flask import Flask
 from datetime import datetime
-import threading 
+import threading
+import time 
 import requests
 
 app = Flask(__name__)
@@ -15,7 +16,9 @@ def ping():
 
 
 def keepalive():
-    p=requests.get("https://ddl39.herokuapp.com/ping")    
+    time.sleep(10000)
+    p=requests.get("https://ddl39.herokuapp.com/ping")
+    print("KEEP ALIVE")    
 
 if __name__ == '__main__':
     t1 = threading.Thread(target=keepalive)
