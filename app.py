@@ -1,6 +1,6 @@
 from flask import Flask
 from datetime import datetime
-import threading
+import _thread
 import time 
 import requests
 
@@ -24,14 +24,15 @@ def log():
 
 
 def keepalive():
+    print("THRED STARTED")
     while True:
-        time.sleep(10)
+        time.sleep(3)
         p=requests.get("https://ddl39.herokuapp.com/ping")
         print("KEEP ALIVE")
      
 
 if __name__ == '__main__':
-    t1 = threading.Thread(target=keepalive)
-    t1.start() 
+    print("MAIN")
+    _thread.start_new_thread(keepalive)
     app.run(debug=True, use_reloader=True)
 
