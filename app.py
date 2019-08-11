@@ -1,6 +1,6 @@
 from flask import Flask
 from datetime import datetime
-import _thread
+import threading 
 import time 
 import requests
 
@@ -32,7 +32,8 @@ def log():
 @app.route('/thread')
 def thread():
     print("MAIN")
-    _thread.start_new_thread(keepalive)
+    t = threading.Thread(target=keepalive)
+    t.start() 
 
 
 
